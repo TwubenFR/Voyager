@@ -1,0 +1,225 @@
+
+
+module.exports = {
+    name: "flightplan",
+    description: "Flight planner",
+    async execute(message, args, Discord, client) {
+        let messageArgs = args.join(' ');
+
+
+        const embedCrew = new Discord.MessageEmbed()
+            .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+            .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+            .setTitle("Flight planner")
+            .setColor('#F1652C')
+            .setDescription(`Set your crew!`)
+            .addField('\u200B', '\u200B')
+            .addField("Flight crew?", '\u200B')
+        const msg1 = await message.channel.send(embedCrew);
+        message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(CrewName => {
+            let crewName = CrewName.first();
+            msg1.delete();
+
+
+            
+            const embedRank = new Discord.MessageEmbed()
+                .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                .setTitle("Flight planner")
+                .setColor('#F1652C')
+                .setDescription(`Set your Rank!`)
+                .addField('\u200B', '\u200B')
+                .addField(`Flight Crew:`, `${crewName}`)
+                .addField(`Rank?`, '\u200B')
+            const rankmessg = await message.channel.send(embedRank);
+            message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(Rank => {
+                rankmessg.delete();
+                let rank = Rank.first();
+
+
+                const FLHours = new Discord.MessageEmbed()
+                    .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                    .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                    .setTitle("Flight planner")
+                    .setColor('#F1652C')
+                    .setDescription(`Set your Flight Hours!`)
+                    .addField('\u200B', '\u200B')
+                    .addField(`Flight Crew:`, `${crewName}`)
+                    .addField(`Rank:`, ` ${rank}`)
+                    .addField(`Flight Hours?`, '\u200B')
+                const msg3 = message.channel.send(FLHours);
+                message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(FlHours => {
+                    let flHours = FlHours.first();
+                    msg3.delete();
+
+
+                    const embedDeparture = new Discord.MessageEmbed()
+                        .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                        .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                        .setTitle("Flight planner")
+                        .setColor('#F1652C')
+                        .setDescription(`Set your Departure!`)
+                        .addField('\u200B', '\u200B')
+                        .addField(`Flight Crew:`, `${crewName}`)
+                        .addField(`Rank:`, `${rank}`)
+                        .addField(`Flight Hours:`, `${flHours}`)
+                        .addField(`Departure?`, '\u200B')
+                    const msg4 = message.channel.send(embedDeparture);
+                    message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(Departure => {
+                        let departure = Departure.first();
+                        msg4.delete();
+
+
+                        const embedArrival = new Discord.MessageEmbed()
+                            .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                            .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                            .setTitle("Flight planner")
+                            .setColor('#F1652C')
+                            .setDescription(`Set your Arrival!`)
+                            .addField('\u200B', '\u200B')
+                            .addField(`Flight Crew:`, `${crewName}`)
+                            .addField(`Rank:`, `${rank}`)
+                            .addField(`Flight Hours:`, `${flHours}`)
+                            .addField(`Departure:`, `${departure}`)
+                            .addField(`Arrival?`, '\u200B')
+                        const msg5 = message.channel.send(embedArrival);
+                        message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(Arrival => {
+                            let arrival = Arrival.first();
+                            msg5.delete();
+
+
+                            const FLCruise = new Discord.MessageEmbed()
+                                .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                .setTitle("Flight planner")
+                                .setColor('#F1652C')
+                                .setDescription(`Set your Cruise Altidude!`)
+                                .addField('\u200B', '\u200B')
+                                .addField(`Flight Crew:`, `${crewName}`)
+                                .addField(`Rank:`, `${rank}`)
+                                .addField(`Flight Hours:`, `${flHours}`)
+                                .addField(`Departure:`, `${departure}`)
+                                .addField(`Arrival:`, `${arrival}`)
+                                .addField(`Cruise Altitude?`, '\u200B')
+                            const msg6 = message.channel.send(FLCruise);
+                            message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(CruiseAlt => {
+                                let cruiseAlt = CruiseAlt.first();
+                                msg6.delete();
+
+
+                                const Duration = new Discord.MessageEmbed()
+                                    .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                    .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                    .setTitle("Flight planner")
+                                    .setColor('#F1652C')
+                                    .setDescription(`Set your Flight Duration!`)
+                                    .addField('\u200B', '\u200B')
+                                    .addField(`Flight Crew:`, `${crewName}`)
+                                    .addField(`Rank:`, `${rank}`)
+                                    .addField(`Flight Hours:`, `${flHours}`)
+                                    .addField(`Departure:`, `${departure}`)
+                                    .addField(`Arrival:`, `${arrival}`)
+                                    .addField(`Cruise Altitude:`, `${cruiseAlt}`)
+                                    .addField(`Flight Duration?`, '\u200B')
+                                const msg7 = message.channel.send(Duration);
+                                message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(FlDuration => {
+                                    let duration = FlDuration.first();
+                                    msg7.delete();
+
+
+                                    const Plane = new Discord.MessageEmbed()
+                                        .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                        .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                        .setTitle("Flight planner")
+                                        .setColor('#F1652C')
+                                        .setDescription(`Set your Plane!`)
+                                        .addField('\u200B', '\u200B')
+                                        .addField(`Flight Crew:`, `${crewName}`)
+                                        .addField(`Rank:`, `${rank}`)
+                                        .addField(`Flight Hours:`, `${flHours}`)
+                                        .addField(`Departure:`, `${departure}`)
+                                        .addField(`Arrival:`, `${arrival}`)
+                                        .addField(`Cruise Altitude:`, `${cruiseAlt}`)
+                                        .addField(`Flight Duration:`, ` ${duration}`)
+                                        .addField(`Plane?`, '\u200B')
+                                    const msg8 = message.channel.send(Plane);
+                                    message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(PLane => {
+                                        let plane = PLane.first();
+                                        msg8.delete();
+
+
+                                        const FlightPlan = new Discord.MessageEmbed()
+                                            .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                            .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                            .setTitle("Flight planner")
+                                            .setColor('#F1652C')
+                                            .setDescription(`Set your Flight Request Type!`)
+                                            .addField('\u200B', '\u200B')
+                                            .addField(`Flight Crew:`, `${crewName}`)
+                                            .addField(`Rank:`, `${rank}`)
+                                            .addField(`Flight Hours:`, `${flHours}`)
+                                            .addField(`Departure:`, `${departure}`)
+                                            .addField(`Arrival:`, `${arrival}`)
+                                            .addField(`Cruise Altitude:`, `${cruiseAlt}`)
+                                            .addField(`Flight Duration:`, ` ${duration}`)
+                                            .addField(`Plane:`, `${plane}`)
+                                            .addField(`Request Type?`, '\u200B')
+                                        const msg9 = message.channel.send(FlightPlan);
+                                        message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(FLRequest => {
+                                            let flRequest = FLRequest.first();
+                                            msg9.delete();
+
+
+                                            const Callsign = new Discord.MessageEmbed()
+                                                .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                                .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                                .setTitle("Flight planner")
+                                                .setColor('#F1652C')
+                                                .setDescription(`Set your Flight Request Type!`)
+                                                .addField('\u200B', '\u200B')
+                                                .addField(`Flight Crew:`, `${crewName}`)
+                                                .addField(`Rank:`, `${rank}`)
+                                                .addField(`Flight Hours:`, `${flHours}`)
+                                                .addField(`Departure:`, `${departure}`)
+                                                .addField(`Arrival:`, `${arrival}`)
+                                                .addField(`Cruise Altitude:`, `${cruiseAlt}`)
+                                                .addField(`Flight Duration:`, ` ${duration}`)
+                                                .addField(`Plane:`, `${plane}`)
+                                                .addField(`Request Type:`, `${flRequest}`)
+                                                .addField(`Callsign?`, '\u200B')
+                                            const msg0 = message.channel.send(Callsign);
+                                            message.channel.awaitMessages(m => m.author.id === message.author.id, { max: 1, time: 30000 }).then(CALLsign => {
+                                                let callsign = CALLsign.first();
+                                                msg0.delete();
+
+
+                                                const confirmed = new Discord.MessageEmbed()
+                                                    .setAuthor(client.user.username, client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                                    .setThumbnail(client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+                                                    .setTitle("Flight planner")
+                                                    .setColor('#F1652C')
+                                                    .setDescription(`This is your flight plan!`)
+                                                    .addField('\u200B', '\u200B')
+                                                    .addField(`Flight Crew:`, `${crewName}`)
+                                                    .addField(`Rank:`, `${rank}`)
+                                                    .addField(`Flight Hours:`, `${flHours}`)
+                                                    .addField(`Departure:`, `${departure}`)
+                                                    .addField(`Arrival:`, `${arrival}`)
+                                                    .addField(`Cruise Altitude:`, `${cruiseAlt}`)
+                                                    .addField(`Flight Duration:`, ` ${duration}`)
+                                                    .addField(`Plane:`, `${plane}`)
+                                                    .addField(`Request Type:`, `${flRequest}`)
+                                                    .addField(`Callsign:`, `${callsign}`)
+                                                let msg = message.channel.send(confirmed);
+                                            })
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    }
+}

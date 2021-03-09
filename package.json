@@ -1,23 +1,23 @@
 {
-  "name": "voyager",
+  "name": "verificationbot",
   "version": "0.0.1",
   "description": "",
   "main": "main.js",
-  "dependencies": {
-    "discord.js": "^12.5.1"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/TwubenFR/Voyager.git"
+    "url": "git+https://github.com/TwubenFR/VerificationBot.git"
   },
   "author": "Twuben",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TwubenFR/Voyager/issues"
+    "url": "https://github.com/TwubenFR/VerificationBot/issues"
   },
-  "homepage": "https://github.com/TwubenFR/Voyager#readme"
+  "homepage": "https://github.com/TwubenFR/VerificationBot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  }
 }
